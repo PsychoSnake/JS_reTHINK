@@ -1,5 +1,5 @@
 
-var display = document.getElementById("display");
+const display = document.getElementById("display");
 
 rethink.default.install({
     domain: 'hysmart.rethink.ptinovacao.pt',
