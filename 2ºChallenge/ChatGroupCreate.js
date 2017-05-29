@@ -3,17 +3,24 @@ let thisGroupChatManager;
 let thisChatController;
 let thisChatURL;
 let thisGroupName;
+let thisRuntime;
+
+rethink.default.install(
+    {
+        domain: 'hysmart.rethink.ptinovacao.pt',
+        development: true,
+        runtimeURL: 'hyperty-catalogue://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/runtime/Runtime',
+    }).then((runtime) =>
+        {
+            console.log("inside runtime");
+            thisRuntime = runtime;
+        }).catch(reason => console.log("Error in Runtime",reason));
+
+
 
 document.getElementById("create_chat").onclick = function() {
 
-    rethink.default.install({
-        domain: 'hysmart.rethink.ptinovacao.pt',
-        development: true,
-        runtimeURL: 'hyperty-catalogue://catalogue.hysmart.rethink.ptinovacao.pt/.well-known/runtime/Runtime'
-    }).then((runtime) => {
-        console.log("inside runtime");
-
-        runtime.requireHyperty(getHypertyURL('hysmart.rethink.ptinovacao.pt', 'GroupChatManager'))
+        thisRuntime.requireHyperty(getHypertyURL('hysmart.rethink.ptinovacao.pt', 'GroupChatManager'))
             .then((GroupChatManager) => {
                 thisGroupChatManager = GroupChatManager;
                 const name = document.getElementById("name").value;
@@ -37,7 +44,6 @@ document.getElementById("create_chat").onclick = function() {
 
 
             });
-    });
 };
 
 

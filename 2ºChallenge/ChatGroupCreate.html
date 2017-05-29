@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+        <script src="https://hysmart.rethink.ptinovacao.pt/.well-known/runtime/rethink.js"></script>
+        <title>Create Chat</title>
+
+        <style>
+            .label {
+                position: relative;
+                margin-left: 650px;
+                width: 500px;
+                font-size: 24px;
+            }
+
+            .input {
+                position: relative;
+                margin-left: 650px;
+                width: 500px;
+                font-size: 24px;
+            }
+
+            .button {
+                position: relative;
+                margin-left: 650px;
+                display:block;
+                width: 500px;
+                height: 150px
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div id="display">
+            <label class="label" for="name">Name:</label> <br>
+            <input class="input" type="text" id="name"> <br>
+
+            <label class="label" for="emails">Emails:</label> <br>
+            <input class="input" type="text" id="emails"> <br>
+
+            <label class="label" for="domains">Domains:</label> <br>
+            <input class="input" type="text" id="domains"> <br>
+
+            <label class="label" for="message">Message:</label> <br>
+            <input class="input" type="input" id="message">
+            <button id="send" onclick="sendMessage()">Send Message</button><br>
+
+            <button class="button" id="create_chat"> CreateChat</button> <br>
+            <button class="button" id="invite" onclick="inviteUser()"> Invite</button> <br>
+
+        </div>
+        <script src="ChatGroupCreate.js"></script>
+    </body>
+
+</html>
